@@ -1,0 +1,49 @@
+/*************************************************************************
+
+   >>> MAC0211 (Laboratório de Programação I)
+   Professor: Marco Dimas Gubitoso
+
+   Grupo:
+    > Caio Rulli Thomaz       - nº USP: 8536106
+
+*************************************************************************/
+
+==================================================
+ MANUAL DE INSTRUÇÕES - Ataque do Pássaro Biônico!
+==================================================
+
+-----------------
+   Compilação
+-----------------
+
+        INSTRUÇÃO                          TERMINAL
+- Entre na pasta do jogo     -----   $ cd (diretórios)/Ataque\ do\ Pássaro\ Biônico\!\ Parte\ 1/
+- Digite "make"              -----   $ make
+
+
+-----------------
+    Execução
+-----------------
+
+1)
+        INSTRUÇÃO                          TERMINAL
+- Entre na pasta do jogo     -----   $ cd (diretórios)/Ataque\ do\ Pássaro\ Biônico\!\ Parte\ 1/
+- Entre na pasta "bin"       -----   $ cd bin/
+- Execute "main"             -----   $ ./main
+
+-----------------
+  Funcionamento
+-----------------
+
+--> Controles
+> Barra de espaço: atira
+> Setas: movem o pássaro
+
+--> Esquema de pontuação
+  A pontuação pode ser determinada por dois fatores:
+> Pontuação: cada vez que um inimigo é destruído,
+  soma-se a distância percorrida antes à pontuação.
+> Distância percorrida: a distância bruta percorrida
+  pelo pássaro biônico desde o início de sua viagem.
+  Nota-se que a probabilidade de um inimigo novo aparecer
+  a cada frame aumenta com o tempo.

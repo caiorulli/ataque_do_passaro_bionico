@@ -1,0 +1,188 @@
+/*************************************************************************
+
+   >>> MAC0211 (Laboratório de Programação I)
+   Professor: Marco Dimas Gubitoso
+
+   Grupo:
+    > Caio Rulli Thomaz       - nº USP: 8536106
+
+*************************************************************************/
+
++ EXTRA: Funções e definições adicionais, que complementam o
+  programa.
+
+- defesa.h, nave.h, tiro.h: Structs homônimas definidas.
+
++ OBJETO: Funções e definições ligadas comumente a "nave",
+  "tiro", "defesa" e "cenario".
+
+- objeto.h: Definições de structs Posição (x, y, z) e Orientação
+  (vetores i, j, k).
+
+- tiro.h: Struct Tiro adaptada para ser uma lista ligada através de um
+  *prox. 
+
+- tiro.h, nave.h: Posicao e Orientacao serão ponteiros nas structs
+  Nave, Tiro.
+
++ MAIN: O .c e o .h estão vazios atualmente.
+
+- objeto.h: Criados #define para facilitar a troca de int para double,
+  caso necessário futuramente.
+
+- Todos os ".h" agora possuem a descrição do que, no geral, fazem.
+
+- nave.h: Speed e Hp da nave possuem um #define.
+
+- tiro.h: A velocidade agora é vetorial, e com isso criou-se a struct Spdvet. 
+
+- objeto.h: Struct Orientacao não existe mais.
+
+- nave.h: Orientação agora é angular (em radianos).
+  Usam-se dois ângulos, angx e angy.
+
+- nave.h: #define para ângulo máximo e posição (x, y, z) inicial.
+
+- Structs Spdvet e Posicao viraram struct Vetor, que é usado tanto para
+  velocidade dos tiros quanto para posição de um objeto.
+
+- cenario.c iniciado.
+
+- defesa.c terminado.
+
+- main.h: Levou FATALITY! Funções extras do main transferidas para
+  cenario e extra.
+
+- nave.c e tiro.c foram bem alterados (novas funções, #defines, etc.).
+
+- cenario.c terminado! 
+
+- Todas as funções necessárias estão prontas! Assim esperamos, pelo menos...
+
+- Todas as funções do cenário estão funcionando!
+
++ TESTE: Funções de print para melhor debugar o programa.
+
+- Removemos duas funções mega inúteis: removeTiro e removeDefesa.
+
+- Valgrind approved! Todos os frees foram dados!
+
+- Modo de teste: Jogo vai até a nave morrer. Toda vez que esta é atingida,
+  colide ou consegue acertar um tiro num inimigo, o programa congela e
+  os atributos da nave, inimigos e tiros são mostrados.
+
+- Linha de comando:
+
+  + Semente  (time(NULL) por default ou se o caractere "x" for usado);
+
+  + Ângulo x (0 por default);
+
+  + Ângulo y (0 por default).
+
+  (Observação: Os ângulos da nave ficam constantes durante todo o programa).
+
+- Os tiros da nave foram limitados com um "tempo de espera" até poder atirar novamente.
+
+- Manual de instruções criado! :D
+
+- Bugs corrigidos:
+
+  + Se a nave estiver com ângulos x,y zerados e disparar, o tiro só terá velocidade z,
+    levando free apenas quando a nave for destruída. Criou-se a constante DIST_TIRONAVE,
+    que é a diferença máxima de profundidade que o tiro pode ter em relação à nave.
+
+  + Se a nave estivesse sem inclinação e atirasse, o tiro tinha chance de sair torto.
+
+- Relatório pronto! :D
+
+- Todas as funções possuem comentários.
+
+- Revisão final no código.
+
+- Primeira Fase: MISSION COMPLETE!!!
+
+- Primeira Fase enviada para o Paca.
+
+---> Leonardo Macedo decide sair do grupo por motivos pessoais. Como falta pouco 
+tempo para a entrega da segunda fase, se não for possível fazer o trabalho sozinho
+irei encontrar alguém com quem fazer a terceira fase.
+
+--> Processo de limpeza. Excessos removidos: defines inúteis, comentários prolixos.
+> Desapareceram variáveis como Distancia, Angulo e Speed (desde o começo são 
+double) e Vida (int).
+> Formato da documentação foi alterado, de forma a minimizar o espaço do comentário.
+E para ter mais código do que comentário.
+> extra.c se juntou a objeto.c.
+
+--> Variável frame alterada para timestep (acho que o princípio das duas era o mesmo).
+Não sei ainda como vai funcionar o laço em conjunto com o OpenGL, por isso que está...
+bom, praticamente do mesmo jeito.
+
+--> Na primeira fase estávamos fazendo tudo em função do z (profundidade) da nave, 
+desalocando todos os elementos que já estivessem longe. Pelo que vimos das amostras
+de OpenGL em aula, aparenta ser mais prático para transpôr para a versão gráfica se for
+a profundidade dos outros elementos a modificada. Com isso porém meu gerador de novos
+inimigos passa a não funcionar. Tenho que analisar com mais cuidado, mas acho que o 
+princípio continuará o mesmo. Por mais que seja o z dos elementos a ser alterado, posso
+manter um contador do z imaginário da nave para aplicar a pontuação.
+
+--> Vou uniformizar o sistema de velocidade. Para a nave estávamos usando ângulos e velo-
+cidade escalar, e para todo o resto velocidade vetorial. Seria muito melhor transformar tudo
+em velocidade vetorial e transformar o extra.c em um algebralinear.c, para cuidar de quaisquer
+funções necessárias para isso. Acredito que isso deixará o programa não só muito mais simples
+como permitirá um controle maior sobre a orientação da nave. Talvez, conforme o OpenGL for 
+implementado, aceleração vetorial não seja uma má ideia de implementar os controles da nave.
+
+> Pequena observação, e um tanto quanto sem relação direta com programação: pensei em fazer
+o jogo com o nome de "O Ataque do Pássaro Biônico! Parte 1". Seria uma espécie de caricatura
+de filmes de ficção científica dos anos 80, como "Fuga de Nova Iorque", com Kurt Russell.
+Declaradamente me baseando em Far Cry 3: Blood Dragon, a ideia era por como protagonista um
+pássaro cibernético que lançasse laser pelo seu olho robô. Meu irmão já compôs uma trilha sonora
+legal, então... quem sabe, quando estiver na quarta fase do projeto, eu consiga fazer coisas legais.
+
+> Descobrindo erros idiotas que não tinha visto na primeira fase. Foi tão intensas as sessões de
+programação que passei por cima de coisas que sequer consigo entender agora...
+
+--> Novo modo dinâmico, incrivelmente mais simples do que o anterior... e mais fácil de alterar con-
+forme a dificuldade. geraDefesaAleatoria() gera uma defesa aleatória (pois é) no final do cenário com
+probabilidade passada pelo argumento. Pouco justifica a existência do dinamico.c, mas ainda quero imple-
+mentar certas coisas para deixar mais robusto isso, então deixemos estar.
+
+--> Tudo certo para segunda fase, compilando. Não testei ainda, mas para um teste mais preciso era bom
+poder balancear as constantes do jogo - velocidade da nave, vida, etc. Faltam portanto formalidades:
+relatório, manual... E também tirar includes desnecessários: Leonardo adorava pôr includes repetidos
+"só para ter certeza". Veremos.
+
+--> Começo da terceira fase. Primeira coisa a fazer serão os tipos de inimigos. Tentarei
+implementar tanto móveis quanto imóveis no mesmo .c, se as coisas ficarem feias vou separar.
+> Melhor separar D:
+> Por enquanto módulo dos inimigos não se comunica com nada.
+> Limites do cenário por enquanto: 20x20x1000
+
+--> OpenGL aplicado. Agora uma nave pseudo-piramidal verde avança em uma "estrada" no
+deserto enquanto aparecem quadrados cinzas espetados no chão (as torres de defesa) que 
+disparam tiros vermelhos. A nave atira tiros azuis. Os tiros são pontos e estão muito
+feios ainda. Na verdade, está tudo muito feio até agora. Mas aparenta estar funcionando.
+> Por causa do openGL decidi mudar o sentido do eixo z: a nave vai em sentido contrário
+(velocidade negativa).
+
+--> Implementadas barras de vida.
+> Estou pensando em guardar a função que calcula um tiro bom para as defesas e usar uma
+funcao mais simples. Quando se está jogando, é difícil identificar o padrão dos tiros das
+defesas e agir de acordo (não um difícil legal, mas um difícil meio de "nossa, isso não 
+faz sentido"). Mas ainda assim não sei se isso seria de fato positivo para o jogo
+(simplificar os tiros), porque... bom, a nave deveria poder atirar fora de linha reta
+um pouco mais eficientemente. Estarei investigando.
+
+--> Muitas mudanças no visual.
+> Personagem principal feito, cenário adicionado com algumas perfumarias: listras
+na estrada, etc.
+
+--> Fase 3 finalizada.
+> Ainda faltam algumas coisas a serem feitas para deixar mais legal o jogo, mas a essência
+é essa. Briguei por muito tempo com o OpenAL tentando entender para implementar som, mas isso
+e outras coisas aparentemente vão ficar para a possível quarta fase do projeto ou para as 
+férias mesmo.
+> Uma coisa importante que acredito que não cheguei a esclarecer antes: O sufixo "Parte 1!"
+é apenas um subtítulo para o jogo parecer mais pomposo e épico, não tem nada a ver com
+fase um ou dois do projeto nem nada. Ignore.
