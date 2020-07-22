@@ -3,7 +3,7 @@
 An old project I made (partially with a colleague) on grad school.
 Keeping here for historic reasons.
 
-* Running it
+** Running it
 I'm surprised it still runs!
 Just make it. I suppose you'll need OpenGL installed.
 
