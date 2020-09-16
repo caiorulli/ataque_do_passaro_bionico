@@ -12,8 +12,8 @@
 #define H_CENARIO_DEFINED
 
 #include "objeto.h"
-#include <stdbool.h>
 #include <GL/glut.h>
+#include <stdbool.h>
 
 void carregaCenario();
 void atualizaCenario();

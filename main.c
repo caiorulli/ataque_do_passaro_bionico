@@ -8,10 +8,10 @@
 
 *************************************************************************/
 
-#include <GL/glut.h>
-#include <stdbool.h>
 #include "cenario.h"
 #include "nave.h"
+#include <GL/glut.h>
+#include <stdbool.h>
 
 bool *keyStates;
 bool *keySpecialStates;
@@ -19,16 +19,16 @@ long cooldown;
 extern Nave *nave;
 extern unsigned int timestep;
 
-void keyOperations (void) {
+void keyOperations(void) {
   if (keyStates['q'])
     fimDeJogo();
   if (keyStates[' '] && cooldown <= 0) {
     naveAtira();
     cooldown = NAVEFIRERATE;
   }
-}  
+}
 
-void keySpecialOperations (void) {
+void keySpecialOperations(void) {
   if (keySpecialStates[GLUT_KEY_LEFT])
     nave->vel.x = -0.1;
   else if (keySpecialStates[GLUT_KEY_RIGHT])
@@ -43,28 +43,20 @@ void keySpecialOperations (void) {
     nave->vel.y = 0;
 }
 
-void keyPressed (unsigned char key, int x, int y) {  
-  keyStates[key] = true; 
-}
+void keyPressed(unsigned char key, int x, int y) { keyStates[key] = true; }
 
-void keyUp (unsigned char key, int x, int y) {  
-  keyStates[key] = false; 
-} 
+void keyUp(unsigned char key, int x, int y) { keyStates[key] = false; }
 
-void keySpecial (int key, int x, int y) {
-  keySpecialStates[key] = true;  
-}  
+void keySpecial(int key, int x, int y) { keySpecialStates[key] = true; }
 
-void keySpecialUp (int key, int x, int y) {
-  keySpecialStates[key] = false;  
-}
+void keySpecialUp(int key, int x, int y) { keySpecialStates[key] = false; }
 
-void reshape (int width, int height) {  
-    glViewport(0, 0, (GLsizei)width, (GLsizei)height);
-    glMatrixMode(GL_PROJECTION); 
-    glLoadIdentity();
-    gluPerspective(50, (GLfloat)width / (GLfloat)height, 1.0, 1025.0);
-    glMatrixMode(GL_MODELVIEW);
+void reshape(int width, int height) {
+  glViewport(0, 0, (GLsizei)width, (GLsizei)height);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluPerspective(50, (GLfloat)width / (GLfloat)height, 1.0, 1025.0);
+  glMatrixMode(GL_MODELVIEW);
 }
 
 void anda(int n) {
@@ -90,7 +82,7 @@ int main(int argc, char *argv[]) {
   }
 
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE |GLUT_RGB |GLUT_DEPTH);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
   glutInitWindowSize(600, 400);
   carregaCenario();
 

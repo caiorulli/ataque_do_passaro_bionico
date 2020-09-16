@@ -11,9 +11,9 @@
 #ifndef H_DINAMICO_DEFINED
 #define H_DINAMICO_DEFINED
 
-#include <stdbool.h>
 #include "objeto.h"
+#include <stdbool.h>
 
-Defesa * geraDefesaAleatoria(double p);
+Defesa *geraDefesaAleatoria(double p);
 
 #endif

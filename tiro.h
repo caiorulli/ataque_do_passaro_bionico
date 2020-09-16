@@ -10,15 +10,15 @@
 
 #ifndef H_TIRO_DEFINED
 #define H_TIRO_DEFINED
-   
-#include <stdbool.h>
-#include <GL/glut.h>
-#include "objeto.h"
-#include "nave.h"
-#include "defesa.h"
-#include "tiro.h"
 
-#define AMIGO true   /* Analisa se o tiro foi feito por algum inimigo ou pela nave */
+#include "defesa.h"
+#include "nave.h"
+#include "objeto.h"
+#include <GL/glut.h>
+#include <stdbool.h>
+
+#define AMIGO                                                                  \
+  true /* Analisa se o tiro foi feito por algum inimigo ou pela nave */
 
 /* Limites do cenário */
 #define LIMITEESQ -10
@@ -29,10 +29,10 @@
 
 typedef struct tiro Tiro;
 struct tiro {
-   bool origem;
-   Vetor posicao;
-   Vetor vel;
-   Tiro *prox;
+  bool origem;
+  Vetor posicao;
+  Vetor vel;
+  Tiro *prox;
 };
 
 void criaListaTiro();
@@ -40,11 +40,11 @@ void criaListaTiro();
 void atualizaListaTiro();
 void atualizaTiro(Tiro *tiro);
 void insereTiro(bool origem, Vetor posicao, Vetor veloc);
-int  levouTiroNave();
-int  levouTiroDefesa(Defesa *def);
+int levouTiroNave();
+int levouTiroDefesa(Defesa *def);
 void desenhaTiros(void);
 void freeListaTiro();
 
-Tiro * devolveListaTiro();
+Tiro *devolveListaTiro();
 
 #endif

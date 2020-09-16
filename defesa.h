@@ -11,21 +11,21 @@
 #ifndef H_DEFESA_DEFINED
 #define H_DEFESA_DEFINED
 
-#include <stdbool.h>
-#include <GL/glut.h>
 #include "objeto.h"
+#include <GL/glut.h>
+#include <stdbool.h>
 
 #define NMAXDEF 10 /* Número máximo de inimigos simultaneamente na tela */
 #define HITBOXDEF 5
 
 typedef struct defesa Defesa;
 struct defesa {
-   int hp;
-   Vetor posicao;
-   int accuracy;
-   double range;
-   int firerate;
-   Defesa *prox;
+  int hp;
+  Vetor posicao;
+  int accuracy;
+  double range;
+  int firerate;
+  Defesa *prox;
 };
 
 void criaListaDefesa();
@@ -37,6 +37,6 @@ void calculaDanoDefesas();
 void desenhaDefesas(void);
 void freeListaDefesa();
 
-Defesa * devolveListaDefesa();
+Defesa *devolveListaDefesa();
 
 #endif
