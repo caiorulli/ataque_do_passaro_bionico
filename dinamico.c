@@ -15,7 +15,7 @@
 
 #include "objeto.h"
 
-/*     Cria aleatoriamente com prob. p e retorna uma variável do tipo Defesa.*/
+/* Cria aleatoriamente com prob. p e retorna uma variável do tipo Defesa. */
 Defesa *geraDefesaAleatoria(double p) {
   double dado = randomDouble(0, 1);
   Defesa *newDef;

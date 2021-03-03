@@ -28,8 +28,10 @@ void criaListaDefesa() {
   listaDefesa->prox = NULL;
 }
 
-/*Percorre cada Defesa da lista, atualizando sua posição. Se for necessário,
-      remove o inimigo da lista.*/
+/*
+ * Percorre cada Defesa da lista, atualizando sua posição. Se for necessário,
+ * remove o inimigo da lista.
+ */
 void atualizaListaDefesa() {
   Defesa *p, *q;
 
@@ -60,9 +62,9 @@ void insereDefesa(Defesa *defesa) {
 }
 
 /*
-      Determina se os inimigos da lista de Defesa atiram, e, se isso ocorrer,
-      cria um Tiro e insere na lista de mesmo tipo.*/
-
+ * Determina se os inimigos da lista de Defesa atiram, e,
+ * se isso ocorrer, cria um Tiro e insere na lista de mesmo tipo.
+ */
 void defesasAtiram(unsigned int timestep) {
   Defesa *q;
   Vetor shotspeed;
@@ -80,7 +82,7 @@ void defesasAtiram(unsigned int timestep) {
   }
 }
 
-/*Recebe a posicao da nave e verifica se ela colidiu com algum inimigo.*/
+/* Recebe a posicao da nave e verifica se ela colidiu com algum inimigo. */
 bool naveDefesaColidiram() {
   Defesa *q;
 
@@ -91,7 +93,7 @@ bool naveDefesaColidiram() {
   return false;
 }
 
-/*Percorre a lista, analisando se alguma defesa levou dano.*/
+/* Percorre a lista, analisando se alguma defesa levou dano. */
 void calculaDanoDefesas() {
   Defesa *q;
   int dano;
@@ -179,5 +181,5 @@ void freeListaDefesa() {
   listaDefesa = q = NULL;
 }
 
-/*testes.*/
+/* testes. */
 Defesa *devolveListaDefesa() { return listaDefesa; }

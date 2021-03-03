@@ -33,8 +33,7 @@ void criaNave() {
   nave->vel.z = NAVESPD;
 }
 
-/*Recebe vetor.
-      Atualiza a orientação e posição da nave.*/
+/* Recebe vetor. Atualiza a orientação e posição da nave. */
 void atualizaNave() {
   nave->posicao.x += nave->vel.x;
   nave->posicao.y += nave->vel.y;
@@ -50,13 +49,13 @@ void atualizaNave() {
     nave->posicao.y = LIMITESUP;
 }
 
-/*Altera a vida da nave, analisando se ela foi atingida por algum tiro.*/
+/* Altera a vida da nave, analisando se ela foi atingida por algum tiro. */
 void calculaDanoNave() {
   int dano = levouTiroNave();
   nave->hp -= dano;
 }
 
-/*Cria um tiro disparado pela nave e insere na lista de Tiro.*/
+/* Cria um tiro disparado pela nave e insere na lista de Tiro. */
 void naveAtira() {
   Vetor shotspeed, posicao;
   posicao.x = nave->posicao.x;
@@ -72,7 +71,7 @@ Vetor posicaoDaNave() { return nave->posicao; }
 
 bool naveEstaViva() { return nave->hp > 0; }
 
-/*Faz a nave perder vida por ter colidido com algo.*/
+/* Faz a nave perder vida por ter colidido com algo. */
 void naveColidiu() { nave->hp -= 1; }
 
 void desenhaNave(void) {
@@ -346,5 +345,5 @@ void freeNave() {
   nave = NULL;
 }
 
-/*testes*/
+/* testes */
 Nave *devolveNave() { return nave; }

@@ -25,8 +25,7 @@ void criaListaTiro() {
   lst->prox = NULL;
 }
 
-/*Percorre cada Tiro da lista, atualizando sua posição ou removendo-o,
-      se necessário.*/
+/* Percorre cada Tiro da lista, atualizando sua posição ou removendo-o, se necessário. */
 void atualizaListaTiro() {
   Tiro *p, *q;
   p = lst;
@@ -65,7 +64,7 @@ void insereTiro(bool origem, Vetor posicao, Vetor veloc) {
   lst->prox = p;
 }
 
-/*Recebe a posicao da nave e devolve quantos tiros acertaram-na.*/
+/* Recebe a posicao da nave e devolve quantos tiros acertaram-na. */
 int levouTiroNave() {
   Tiro *p, *q;
   int n = 0;
@@ -86,7 +85,7 @@ int levouTiroNave() {
   return n;
 }
 
-/*Recebe um ponteiro para um inimigo e retorna quantos tiros acertaram-no.*/
+/* Recebe um ponteiro para um inimigo e retorna quantos tiros acertaram-no. */
 int levouTiroDefesa(Defesa *def) {
   Tiro *p, *q;
   int n = 0;
@@ -131,5 +130,5 @@ void freeListaTiro() {
   q = lst = NULL;
 }
 
-/*testes.*/
+/* testes. */
 Tiro *devolveListaTiro() { return lst; }

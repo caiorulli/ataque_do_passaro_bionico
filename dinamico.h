@@ -11,6 +11,7 @@
 #ifndef H_DINAMICO_DEFINED
 #define H_DINAMICO_DEFINED
 
+#include "defesa.h"
 #include "objeto.h"
 #include <stdbool.h>
 
